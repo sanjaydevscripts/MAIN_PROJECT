@@ -25,7 +25,7 @@ def index():
 @app.route('/analyse', methods=['POST'])
 def analyse_image():
     print("Received request")  # Debugging print
-    data = request.get_json()  # Get JSON data from frontend
+    data = request.get_json()
 
     if not data or "img_src" not in data:
         return jsonify({"error": "No image source provided"}), 400
@@ -33,31 +33,45 @@ def analyse_image():
     img_src = data["img_src"]
     print(f"Image source received: {img_src}")  # Debugging print
 
+    # Define image paths
+    enhance_image_path = f"C:/Users/Hp/Desktop/MAIN_PROJECT2025/static/enhance_image/{img_src}"
+    original_image_path = f"C:/Users/Hp/Desktop/MAIN_PROJECT2025/static/image/{img_src}"
+    output_dir = "C:/Users/Hp/Desktop/MAIN_PROJECT2025/static/predict_image"
+
+    # Check if enhanced image exists, otherwise use original
+    if os.path.exists(enhance_image_path):
+        input_image_path = enhance_image_path
+        print("✅ Using Enhanced Image for Analysis")
+    else:
+        input_image_path = original_image_path
+        print("⚠️ Enhanced Image Not Found, Using Original")
+
     try:
         model = YOLO("model.pt")
-        
-        input_image_path = f"C:/Users/Hp/Desktop/MAIN_PROJECT2025/static/enhance_image/{img_src}"  # Replace with your image path
-        output_dir = "C:/Users/Hp/Desktop/MAIN_PROJECT2025/static/predict_image"    
-        temp_subfolder = os.path.join(output_dir, "predict")          # Specify the directory to save the image
+        temp_subfolder = os.path.join(output_dir, "predict")
+
         model.predict(
             source=input_image_path,
             show=True,
             save=True,
             conf=0.6,
             line_width=1,
-            project=output_dir,  # Custom output directory
-            name=""  # Folder name inside 'predict_out'
+            project=output_dir,  # Save output
+            name=""
         )
-        #print("value--------",value)
+
+        # Move files from temp subfolder
         if os.path.exists(temp_subfolder):
             for file in os.listdir(temp_subfolder):
-                shutil.move(os.path.join(temp_subfolder, file), output_dir)  # Move files
-            os.rmdir(temp_subfolder)  # Remove the empty 'predict' folder
-        value =  f"http://127.0.0.1:5000/static/predict_image/{img_src}"
+                shutil.move(os.path.join(temp_subfolder, file), output_dir)  
+            os.rmdir(temp_subfolder)  # Remove empty 'predict' folder
+
+        value = f"http://127.0.0.1:5000/static/predict_image/{img_src}"
         return jsonify({"path": value})
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 #enhance    
 @app.route('/enhance', methods=['POST'])
 def enhance_image():
