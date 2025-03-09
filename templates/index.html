@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Input Image With Preview Image</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+    </div>
+    <div class="content">
+        <h1>Underwater<br>
+            Object <span>Detection</span> &<br>
+            Image <span>enhancement</span>
+        </h1>
+        <p>Our website specializes in underwater object detection using advanced AI.<br>
+            We enhance the quality of underwater images, improving visibility and accuracy.
+        </p>
+        <div class="upload-box">
+            
+    <div class="upload-area" onclick="uploadImage()">
+        <h3>Upload image</h3>
+        <input type="file" id="file" accept="image/*" hidden>
+        <div class="img-area" id="image"data-img="">
+            <i class='bx bxs-cloud-upload icon'></i>
+            <p>Image size must be less than <span>2MB</span></p>
+        </div>
+        <button class="select-image">Select Image</button>
+    </div>
+    
+       
+        <div class="buttons">
+            <button class="cancel" onclick="cancelAction()">Cancel</button>
+            <button class="enhance" onclick="enhanceImage()">Enhance</button>
+        </div>
+        <div class="buttons">
+        <button class="analyse" onclick="analyseImage()">Analyse</button>
+    </div>
+    </div>
+    <div style="margin-top: 200px;text-align-last: center;display: flex;justify-content: space-between;">
+        <div style="padding-right: 41px;">
+            <h3>Enhanced Image:</h3>
+            <img id="enhancetImage" src="" alt="Enhanced Image" style="max-width: 500px; display: none;">
+        </div>
+        <div>
+            <h3>Analysed Image:</h3>
+            <img id="resultImage" src="" alt="Analysed Image" style="max-width: 500px; display: none;">
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
