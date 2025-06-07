@@ -8,11 +8,6 @@ The Underwater Plastic Detection and Restoration project aims to develop a robus
 
 Combining Python-based image processing with the YOLOv11 detection model, the system enhances low-quality underwater images and accurately identifies plastic debris such as bottles, bags, and gloves. A user-friendly frontend and a scalable backend ensure seamless data flow from image capture to visualization. The project contributes to environmental monitoring and sets the foundation for future integration into autonomous underwater vehicles.
 
-# TO RUN
-
-
-
-# To run python code
 
 
 
