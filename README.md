@@ -10,12 +10,9 @@ Combining Python-based image processing with the YOLOv11 detection model, the sy
 
 # TO RUN
 
-connect rpi with display(rpi have memory with rpi os and that condain main.py file).rpi also connect to ethernet keyboard and mouse.
-run the flutter app,upload one video,click one video that run in the display as soon.
+
 
 # To run python code
 
-open terminal in rpi os ,python main.py
-it automatically create ngrok url save it in firebase
-(first run python code then select video in app)
+
 
