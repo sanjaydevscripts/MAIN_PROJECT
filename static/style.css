@@ -1,0 +1,559 @@
+<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #0071FF;
+    --light-blue: #B6DBF6;
+    --dark-blue: #005DD1;
+    --grey: #f2f2f2;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right,rgb(165, 165, 165),rgb(209, 236, 250));
+    color: #333;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: end;
+    padding: 20px 40px;
+    background: none;
+    position: absolute;
+    top: 20px;
+    right:100px
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.content {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00587a;
+    line-height: 1.2;
+    position:absolute;
+    top: 35%;
+    left: 20px;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #444;
+    position: absolute;
+    top: 60%;
+    left: 20px;
+}
+
+.upload-box {
+    margin:  1px;
+    padding: 20px;
+    width: 350px;
+    border: 1.3px dashed  ;
+    border-color: #333;
+    background:linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250)) ;
+    text-align: left;
+    position: relative;
+    top: 70px;
+    left: 470px;
+    
+    
+}
+
+.upload-box h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.upload-box .upload-area {
+    margin-top: 5px;
+    align-items: center;
+    padding: 1px;
+    width: 310px;
+    height: 200pxs;
+    
+    background: linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250));
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload-box .upload-area:hover {
+    background: #eef;
+}
+
+.upload-box .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.upload-box .buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-box .buttons button.cancel {
+    background: #00587a;
+    color: #ffffff;
+    width: 140px;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+    
+}
+.upload-box .buttons button.cancel:hover {
+    font-size:medium ;
+}
+
+.upload-box .buttons button.enhance {
+    background: #00587a;
+    color: #fff;
+    width: 140px;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+    
+}
+.upload-box .buttons button.enhance:hover {
+    font-size:medium ;
+}
+
+.upload-box .buttons button.analyse {
+    background: var(--blue);
+    color: #fff;
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+}
+.upload-box .buttons button.analyse:hover {
+    font-size:medium ;
+}
+
+.img-area {
+    position: relative;
+    left: 25px;
+    width: 80%;
+    height: 200px;
+    background: linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250));
+    margin-bottom: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-area .icon {
+    font-size: 90px;
+}
+
+.img-area h3 {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.img-area p {
+    color: #999;
+    font-size: 13px;
+}
+
+.img-area p span {
+    font-weight: 100;
+}
+
+.img-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 100;
+}
+
+.img-area::before {
+    content: attr(data-img);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 200;
+}
+
+.img-area.active:hover::before {
+    opacity: 1;
+}
+
+.select-image {
+    display: block; 
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 100;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.select-image:hover {
+    background: rgb(63, 1, 63);
+}
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #0071FF;
+    --light-blue: #B6DBF6;
+    --dark-blue: #005DD1;
+    --grey: #f2f2f2;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right,rgb(165, 165, 165),rgb(209, 236, 250));
+    color: #333;
+    margin:0px;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: end;
+    padding: 20px 40px;
+    background: none;
+    position: absolute;
+    top: 20px;
+    right:100px
+}
+
+.navbar a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.content {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00587a;
+    line-height: 1.2;
+    position:absolute;
+    top: 35%;
+    left: 20px;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #444;
+    position: absolute;
+    top: 60%;
+    left: 20px;
+}
+
+.upload-box {
+    margin:  1px;
+    padding: 20px;
+    width: 350px;
+    border: 1.3px dashed  ;
+    border-color: #333;
+    background:linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250)) ;
+    text-align: left;
+    position: relative;
+    top: 70px;
+    left: 470px;
+    
+    
+}
+
+.upload-box h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.upload-box .upload-area {
+    margin-top: 5px;
+    align-items: center;
+    padding: 1px;
+    width: 310px;
+    height: 200pxs;
+    
+    background: linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250));
+    text-align: center;
+    cursor: pointer;
+}
+
+.upload-box .upload-area:hover {
+    background: #eef;
+}
+
+.upload-box .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.upload-box .buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-box .buttons button.cancel {
+    background: #00587a;
+    color: #ffffff;
+    width: 140px;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+    
+}
+.upload-box .buttons button.cancel:hover {
+    font-size:medium ;
+}
+
+.upload-box .buttons button.enhance {
+    background: #00587a;
+    color: #fff;
+    width: 140px;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+    
+}
+.upload-box .buttons button.enhance:hover {
+    font-size:medium ;
+}
+
+.upload-box .buttons button.analyse {
+    background: var(--blue);
+    color: #fff;
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    font-weight: 100;
+    font-size: 13px;
+}
+.upload-box .buttons button.analyse:hover {
+    font-size:medium ;
+}
+
+.img-area {
+    position: relative;
+    left: 25px;
+    width: 80%;
+    height: 200px;
+    background: linear-gradient(to right,rgb(219, 219, 243),rgb(209, 236, 250));
+    margin-bottom: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-area .icon {
+    font-size: 90px;
+}
+
+.img-area h3 {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.img-area p {
+    color: #999;
+    font-size: 13px;
+}
+
+.img-area p span {
+    font-weight: 100;
+}
+
+.img-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 100;
+}
+
+.img-area::before {
+    content: attr(data-img);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 200;
+}
+
+.img-area.active:hover::before {
+    opacity: 1;
+}
+
+.select-image {
+    display: block; 
+    width: 50%;
+    margin-left: 25%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 100;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.select-image:hover {
+    background: rgb(63, 1, 63);
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed; /* Keeps navbar fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00587a; /* Dark background */
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures navbar stays on top */
+}
+
+/* Navbar List Styling */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centers navbar items */
+}
+
+/* Navbar List Items */
+.navbar ul li {
+    margin: 0 20px;
+}
+
+/* Navbar Links */
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+>>>>>>> 632e11c (files uploaded)
