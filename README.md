@@ -1,8 +1,8 @@
-#UNDER WATER PLASTIC DETECTION AND IMAGE ENHANCEMENT
+# UNDER WATER PLASTIC DETECTION AND IMAGE ENHANCEMENT
+
 main project
 
-#Intro
-Underwater Plastic Detection and Restoration
+# Intro
 
 The Underwater Plastic Detection and Restoration project aims to develop a robust and intelligent system for identifying plastic waste in underwater environments. This system addresses critical challenges in marine pollution tracking by integrating advanced image enhancement techniques with real-time object detection powered by deep learning.
 
